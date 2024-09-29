@@ -10,20 +10,24 @@
       function handleLanguageChange(selectElement) {
         var selectedValue = selectElement.value;
         if (selectedValue === 'tl') {
-            window.location.href = 'ind1.html'; // Redirect to the TL page
+          window.location.href = 'ind1.html'; // Redirect to the TL page
         } else if (selectedValue === 'en') {
-            window.location.href = 'index.html'; // Redirect to the EN page
+          window.location.href = 'index.html'; // Redirect to the EN page
         }
       }
     </script>
   </head>
   <body>
-    <header> 
-      <div class="container1 col-sm-6">
-        <img src="Decore.png">
-        <div class="logo"></div>
-        <nav>
-          <ul>
+    <header>
+      <div class="container1">
+        <div class="logo"><img src="Decore.png" alt="Logo"></div>
+        <nav class="nav-container">
+          <!-- Hamburger menu -->
+          <div class="responsive-toggle" onclick="toggleMenu()">
+            <span>&#9776;</span> <!-- Simple Hamburger Icon -->
+          </div>
+          <!-- Links -->
+          <ul class="links">
             <li><a href="#">Destinations</a></li>
             <li><a href="#">Hotels</a></li>
             <li><a href="#">Flights</a></li>
@@ -40,6 +44,14 @@
         </nav>
       </div>
     </header>
+    
+    <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector('.nav-container .links');
+        navLinks.classList.toggle('active');
+      }
+    </script>
+    
   
       <section class="starter">
         <div class="content">
