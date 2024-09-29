@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Travel Agency</title>
+    <script>
+        function handleLanguageChange(selectElement) {
+          var selectedValue = selectElement.value;
+          console.log("Selected value:", selectedValue); // Log the selected value
+          
+          if (selectedValue === 'tl') {
+            console.log("Redirecting to ind1.html");
+            window.location.href = 'ind1.html'; // Redirect to the TL page
+          } else if (selectedValue === 'en') {
+            console.log("Redirecting to index.html");
+            window.location.href = 'index.html'; // Redirect to the EN page
+          }
+        }
+      </script>
+      
+  </head>
+  <body>
+    <header> 
+      <div class="container1 col-sm-6">
+        <img src="Decore.png">
+        <div class="logo"></div>
+        <nav>
+          <ul>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#">Flights</a></li>
+            <li><a href="#">Bookings</a></li>
+            <li><a href="#">Login</a></li>
+            <li class="sign"><a href="#">Sign up</a></li>
+            <li>
+                <select class="custom-select" onchange="handleLanguageChange(this)">
+                    <option value="en">EN</option>
+                    <option value="tl">TL</option>
+                </select>
+                
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="starter">
+      <div class="content">
+        <p class="subTitle">ప్రపంచంలోని ఉత్తమ గమ్యస్థానాలు</p>
+        <h1 class="title">
+          ప్రయాణించండి, ఆనందించండి మరియు కొత్త జీవితాన్ని ఆస్వాదించండి
+        </h1>
+        <div class="description">
+          వేయించబడిన వికెట్‌ను ఎక్కువగా మెచ్చుకుంటున్నారు, బార్టన్ వ్యర్ధమైనందుకు దానిలో చేసారు. క్రీడాకారులకు వినిపించడం ఇష్టంగా మారింది. పార్క్ గేట్ వారు వెస్ట్ హార్డ్ కోసం విక్రయించారు.
+        </div>
+        <div class="last">
+          <button>మరింత తెలుసుకోండి</button>
+        </div>
+      </div>
+      <div class="image">
+        <img src="traveller.png" alt="" />
+      </div>
+    </section>
+
+    <section class="services">
+      <p class="subtitle">వర్గం</p>
+      <h2 class="title">మేము ఉత్తమ సేవలను అందిస్తున్నాము</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">
+            <img src="weather.png" alt="" />
+          </div>
+          <h3 class="title">గణించిన వాతావరణం</h3>
+          <p>
+            వేయించబడిన వికెట్‌ను ఎక్కువగా మెచ్చుకుంటున్నారు, బార్టన్ వ్యర్ధమైనందుకు దానిలో చేసారు.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <img src="flight.png" alt="" />
+          </div>
+          <h3 class="title">ఉత్తమ విమానాలు</h3>
+          <p>
+            వినిపించడం కట్టిపెట్టారు. పార్క్ గేట్ వారు వెస్ట్ హార్డ్ కోసం విక్రయించారు.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <img src="event.png" alt="" />
+          </div>
+          <h3 class="title">స్థానిక కార్యక్రమాలు</h3>
+          <p>
+            బార్టన్ వ్యర్ధమైనందుకు దానిలో చేసారు. విన్నపుడు ఇష్టమైనది.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <img src="customization.png" alt="" />
+          </div>
+          <h3 class="title">అనుకూలీకరణ</h3>
+          <p>
+            మేము సైనిక కస్టమర్ల కోసం ఔట్‌సోర్స్డ్ విమాన సేవలను అందిస్తాము.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="destination">
+      <p class="subtitle">అత్యంత విక్రయాలు</p>
+      <h2 class="title">టాప్ గమ్యస్థానాలు</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="image">
+            <img src="rome.png" alt="" />
+          </div>
+          <div class="content">
+            <h3>రోమ్, ఇటలీ</h3>
+            <h3>$5,42k</h3>
+          </div>
+          <div class="time">
+            <img src="navigation.png">
+            <h4>10 రోజుల ప్రయాణం</h4>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="london.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h3>లండన్, యుకె</h3>
+            <h3>$4.2k</h3>
+          </div>
+          <div class="time">
+            <img src="navigation.png">
+            <h4>12 రోజుల ప్రయాణం</h4>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="europe.png" alt="" />
+          </div>
+          <div class="content">
+            <h3>యూరోప్ మొత్తం</h3>
+            <h3>$15k</h3>
+          </div>
+          <div class="time">
+            <img src="navigation.png">
+            <h4>28 రోజుల ప్రయాణం</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="next-trip">
+      <div class="content">
+        <p class="subtitle">సులభంగా మరియు వేగంగా</p>
+        <h2 class="title">మీ తదుపరి ప్రయాణాన్ని 3 సులభమైన దశల్లో బుక్ చేయండి</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="icon"><img src="group 00.png" alt="" /></div>
+            <div class="text">
+              <h3 class="title">గమ్యస్థానాన్ని ఎంచుకోండి</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, dolor!
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon"><img src="Group 12.png" alt="" /></div>
+            <div class="text">
+              <h3 class="title">చెల్లింపు చేయండి</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, dolor!
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon"><img src="Group 11.png" alt="" /></div>
+            <div class="text">
+              <h3 class="title">ఎంచుకున్న తేదీకి విమానాశ్రయానికి చేరుకోండి</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, dolor!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trip">
+        <img src="girl.jpg" alt="" />
+        <h3 class="title">గ్రీస్ ప్రయాణం</h3>
+        <p class="subTitle">14-29 జూన్ | రాబిన్ జో ద్వారా</p>
+        <div class="icons">
+          <div class="icon">
+            <img src="LEAF.png">
+          </div>
+          <div class="icon">
+            <img src="map.png">
+          </div>
+          <div class="icon">
+            <img src="send.png">
+          </div>
+        </div>
+        <div class="like">
+          <div class="count">
+            <img src="hotel.png">
+            <span>24 మంది వెళ్ళుతున్నారు</span>
+          </div>
+          <img src="heart (6) 1.png">
+        </div>
+      </div>
+
+      <div class="on">
+        <div class="icon">
+          <img src="rome.png">
+        </div>
+        <div class="going">
+          <span class="status">ప్రస్తుతం జరుగుతున్నది</span>
+          <br>
+          <span class="trip-title">రోమ్ ప్రయాణం</span>
+          <br>
+          <span class="completion">40% </span><span class="completion1">పూర్తి</span>
+          <br>
+          <img src="complete.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div class="ro"><img src="Group 77.png"></div>
+      <h2 class="title">
+        Cobham గురించి సమాచారం, తాజా వార్తలు మరియు ఇతర ఆసక్తికరమైన ఆఫర్లను పొందడానికి సబ్స్క్రైబ్ చేయండి.
+      </h2>
+      <div class="contact">
+        <input type="text" placeholder="మీ ఇమెయిల్ అడ్రస్సు">
+        <button>సబ్స్క్రైబ్ చేయండి</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>ప్రతులను కాపీ చేయకండి | Powered by Cobham Travel</p>
+    </footer>
+    <script>
+        function handleLanguageChange(selectElement) {
+          var selectedValue = selectElement.value;
+          console.log("Selected value:", selectedValue); // Log the selected value
+    
+          if (selectedValue === 'tl') {
+            console.log("Redirecting to ind1.html");
+            window.location.href = 'ind1.html'; // Redirect to the TL page
+          } else if (selectedValue === 'en') {
+            console.log("Redirecting to index.html");
+            window.location.href = 'index.html'; // Redirect to the EN page
+          }
+        }
+      </script>
+  </body>
+</html>
