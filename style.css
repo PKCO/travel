@@ -104,18 +104,7 @@ button {
   margin: 0 10rem;
 }
 
-nav {
-  padding: 2rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+
 
 nav .nav-container {
   display: -webkit-box;
@@ -132,41 +121,133 @@ nav .nav-container .brand {
   font-family: "Zen Tokyo Zoo", cursive;
 }
 
-nav .nav-container .responsive-toggle {
-  display: none;
+/* Default navbar styles for large screens */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .links {
+  display: flex;
 }
 
 nav .links ul {
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+  list-style: none;
 }
 
 nav .links ul li {
-  margin: 0 3rem;
+  margin-left: 45px;
 }
 
-nav .links ul li a {
-  color: #1b2f5a;
-  font-size: 1.2rem;
+.responsive-toggle {
+  display: none; /* Hidden on larger screens */
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  /* Hide the nav links by default */
+  nav .links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: white;
+  }
+
+  nav .links.active {
+    display: flex;
+  }
+
+  nav .links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav .links ul li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  /* Show the hamburger icon on smaller screens */
+  .responsive-toggle {
+    display: block;
+  }
 }
 
 
-
+/* Default styles (Desktop) */
 .starter {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .starter .content {
-  margin: 4rem 0 0 0;
-  padding-left: 120px;
-  color: #1b2f5a;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 100%;
+  padding-right: 4rem;
+  margin-top: 100px;
+}
+
+.starter .image img {
+  max-width: 700px;
+  height: 100%;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .starter {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .starter .content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .starter .content .title {
+    font-size: 2rem; /* Adjust title size for mobile */
+  }
+
+  .starter .content .description {
+    font-size: 1rem; /* Adjust description size for mobile */
+    margin: 1rem 0;
+  }
+  .starter .image img {
+    width: 500%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
  
 }
+
+/* Tablet Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .starter {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .starter .content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .starter .image img {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
 
 .starter .content .subTitle {
   color: #f07167;
@@ -205,12 +286,7 @@ nav .links ul li a {
 }
 
 
-.starter .image img {
-  gap: 300px;
-  height: 40rem;  
-  margin-left: 300px;
-  margin-top: 20px;
-}
+
 
 .services {
   margin: 5rem 0;
@@ -364,6 +440,41 @@ nav .links ul li a {
   display: -webkit-box;
   -webkit-box-pack: center;
   gap: 10rem;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .next-trip {
+      flex-direction: column; /* Stack content and trip vertically */
+      align-items: center; /* Center align items */
+  }
+
+  .next-trip .content {
+      margin-bottom: 2rem; /* Add space between sections */
+      text-align: center; /* Center text for smaller screens */
+  }
+
+  .next-trip .trip {
+      width: 100%; /* Full width for trip section on mobile */
+  }
+
+  .next-trip .trip .icons {
+      display: flex; /* Display icons in a row */
+      justify-content: center; /* Center icons */
+      margin-top: 1rem; /* Space above icons */
+  }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .next-trip {
+      flex-direction: row; /* Maintain row layout */
+  }
+
+  .next-trip .trip {
+      text-align: center; /* Center text for tablet */
+  }
 }
 
 .next-trip .content .title {
@@ -550,60 +661,94 @@ margin-right: 0.5rem;
 }
 
 .subscribe {
-  height: 10rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-          background-color: #d3c9f4;
+  flex-direction: column; /* Stack content vertically by default */
+  justify-content: center;
+  align-items: center;
+  background-color: #d3c9f4;
   background-image: url(rotate.png), url(Group\ 42.png);
-  background-repeat:no-repeat;
-  background-position: left bottom, right top ;
+  background-repeat: no-repeat;
+  background-position: left bottom, right top;
   border-radius: 5rem 1rem 1rem 1rem;
-  height: 320px;
-  width: 1100px;
-  margin-left: 320px;
+  padding: 2rem; /* Provide some padding */
+  width: 100%; /* Full width for responsiveness */
+  max-width: 1100px; /* Use max-width instead of fixed width */
+  margin: 0 auto; /* Center the section */
 }
-.subscribe .ro img{
-  position: relative;
-  margin-bottom: 20px;
-  margin-left: 1100px;
+
+.subscribe .ro img {
+  max-width: 100%; /* Ensure the image is responsive */
+  height: auto; /* Maintain aspect ratio */
 }
+
 .subscribe .title {
-  width: 60%;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #523f75;
+  text-align: center; /* Center the title */
+  margin: 1rem 0; /* Add margin */
+}
+
+.subscribe .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .subscribe input {
-  border: none;
-  width: 20rem;
-  border-radius: 0.3rem;
-  padding: 1.2rem 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
   margin-right: 1rem;
-  background-image: url(mail.png);
-  margin-bottom: 80px;
-  
-}
-
-.subscribe input:focus {
-  outline: none;
+  width: 300px; /* Default width for input */
+  min-width: 200px; /* Ensure a minimum width */
 }
 
 .subscribe button {
+  padding: 1rem 2rem;
+  border: none;
   background-color: #f07167;
-  padding: 1.1rem 3rem;
+  color: white;
+  border-radius: 0.5rem;
 }
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .subscribe {
+      padding: 1rem; /* Reduce padding */
+  }
+
+  .subscribe .title {
+      font-size: 1.2rem; /* Adjust title size for mobile */
+  }
+
+  .subscribe .contact {
+      flex-direction: column; /* Stack input and button vertically */
+      align-items: stretch; /* Allow input to take full width */
+  }
+
+  .subscribe input {
+      margin: 0 0 1rem 0; /* Space between input and button */
+      width: 100%; /* Full width on mobile */
+      margin-right: 0; /* Reset margin */
+  }
+
+  .subscribe button {
+      width: 100%; /* Full width button on mobile */
+  }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .subscribe .contact {
+      flex-direction: row; /* Keep input and button side by side */
+      align-items: center;
+  }
+
+  .subscribe input {
+      width: 250px; /* Adjust width for tablet */
+  }
+}
+
 
 
 footer {
@@ -753,233 +898,107 @@ footer span {
   font-size: 0.8rem;
 }
 
-@media screen and (min-width: 360px) and (max-width: 480px) {
+/* Default styles (for desktop and large devices) remain unchanged */
+
+/* Mobile Styles for Screens <= 480px */
+@media screen and (max-width: 480px) {
+  /* Ensure the container takes up less space */
+  .container {
+    margin: 0 1rem;
+  }
+
+  /* Stack nav items vertically */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .links ul {
+    display: none;
+    flex-direction: column;
+  }
+
+  /* Show the hamburger menu */
+  nav .nav-container .responsive-toggle {
+    display: block;
+  }
+
+  /* Adjust images and text sizes for smaller screens */
+  .starter .image img {
+    height: 15rem;
+  }
+
+  .starter .content {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Adjust card layout */
+  .services .cards,
+  .destination .cards {
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Footer Grid Single Column */
+  footer .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Tablet Styles for Screens between 481px and 768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* Ensure a smaller margin on tablet devices */
   .container {
     margin: 0 2rem;
   }
+
   nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  nav .nav-container {
-    width: 100%;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  nav .nav-container .responsive-toggle {
-    display: block;
-  }
-  nav .nav-toggle {
-    height: 4rem !important;
-  }
-  nav .nav-toggle ul {
-    margin-top: 1rem;
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-  nav .links {
-    height: 0;
-    -webkit-transition: 0.4s ease-in-out;
-    transition: 0.4s ease-in-out;
-  }
+
+  /* Stack nav items vertically */
   nav .links ul {
-    display: none;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
+    margin-top: 1rem;
   }
-  .starter {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+
+  /* Scale images */
   .starter .image img {
-    height: 15rem;
-    margin-top: 4rem;
+    height: 20rem;
   }
-  .services .cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+
+  .services .cards,
   .destination .cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  .next-trip {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .subscribe .title {
-    font-size: 1rem;
-    width: 80%;
-  }
-  .subscribe .contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .subscribe .contact input {
-    width: 12rem;
-    margin: 0;
-    margin-bottom: 1rem;
-  }
+
   footer .grid {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
-  }
-  footer span {
-    font-size: 1rem;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+/* Adjustments for mid-sized screens between 769px and 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* More compact margins for mid-sized devices */
   .container {
     margin: 0 4rem;
   }
-  nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  nav .nav-container {
-    width: 100%;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  nav .nav-container .responsive-toggle {
-    display: block;
-  }
-  nav .nav-toggle {
-    height: 8rem !important;
-  }
-  nav .nav-toggle ul {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-  nav .links {
-    height: 0;
-    -webkit-transition: 0.4s ease-in-out;
-    transition: 0.4s ease-in-out;
-  }
-  nav .links ul {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    display: none;
-  }
-  nav .links ul li {
-    margin: 0.5rem 0;
-  }
-  .starter {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .starter .image img {
-    height: 40rem;
-    margin-top: 4rem;
-  }
-  .services .cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .destination .cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .next-trip {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .subscribe .title {
-    font-size: 2rem;
-    width: 80%;
-  }
-  .subscribe .contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .subscribe .contact input {
-    width: 12rem;
-    margin: 0;
-    margin-bottom: 1rem;
-  }
-  footer {
-    font-size: 1.3rem;
-  }
-  footer .grid {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-  footer span {
-    font-size: 2rem;
-  }
-}
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    margin: 0 6rem;
+  /* Nav items spacing adjustment */
+  nav .links ul li {
+    margin-left: 1rem;
+  }
+
+  /* Adjust services and destination cards */
+  .services .cards,
+  .destination .cards {
+    flex-direction: row;
+    gap: 1rem;
   }
 }
